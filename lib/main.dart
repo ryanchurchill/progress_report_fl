@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:progress_report_fl/students_page.dart';
 import 'package:progress_report_fl/tests_page.dart';
 import 'package:provider/provider.dart';
 
@@ -39,12 +40,15 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = TestsPage();
+        page = StudentsPage();
         break;
       case 1:
-        page = Placeholder();
+        page = TestsPage();
         break;
       case 2:
+        page = Placeholder();
+        break;
+      case 3:
         page = Placeholder();
       default:
         throw UnimplementedError('no widget for $selectedIndex');
@@ -58,6 +62,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: NavigationRail(
                     extended: constraints.maxWidth >= 600,
                     destinations: [
+                      NavigationRailDestination(
+                        icon: Icon(Icons.home),
+                        label: Text('Students'),
+                      ),
                       NavigationRailDestination(
                         icon: Icon(Icons.home),
                         label: Text('Tests'),
